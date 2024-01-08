@@ -1,0 +1,4 @@
+repository "MineTest@azapro66@cloud"
+  path "/"
+    br "/main"
+    co "/main"
