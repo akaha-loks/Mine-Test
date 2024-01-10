@@ -19,9 +19,12 @@ public class VictorinController : MonoBehaviour
     {
         health = PlayerPrefs.GetInt("health");
         Question();
-        if(PlayerPrefs.GetInt("health")  == 0)
+    }
+    private void FixedUpdate()
+    {
+        if (PlayerPrefs.GetInt("health") == 0)
         {
-            Debug.Log("Конец!");
+            SceneManager.LoadScene(1);
         }
     }
     public void Question()
