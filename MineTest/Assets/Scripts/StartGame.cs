@@ -8,8 +8,9 @@ public class StartGame : MonoBehaviour
     private void Awake()
     {
         health = PlayerPrefs.GetInt("health");
-        if(health < 3)
+        if(health < 3 || health >= 4)
         {
+            Debug.LogWarning("’œ" +  health);
             health = 3;
             PlayerPrefs.SetInt("health", health);
         }

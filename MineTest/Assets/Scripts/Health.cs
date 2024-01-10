@@ -7,13 +7,10 @@ public class Health: MonoBehaviour
 {
     public static int health;
     public GameObject Heart1, Heart2, Heart3;
-    private void Start()
-    {
-        health = PlayerPrefs.GetInt("health");
-    }
     private void Update()
     {
-        switch(health)
+        health = PlayerPrefs.GetInt("health");
+        switch (health)
         {
             case 3:
                 Heart1.SetActive(true);

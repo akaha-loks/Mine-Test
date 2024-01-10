@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class VictorinController : MonoBehaviour
 {
+    public int power = 1;
+
     public string textQuestion;
     public Text QuestionTextMain;
 
@@ -17,11 +19,11 @@ public class VictorinController : MonoBehaviour
 
     private void Start()
     {
-        health = PlayerPrefs.GetInt("health");
         Question();
     }
     private void FixedUpdate()
     {
+        health = PlayerPrefs.GetInt("health");
         if (PlayerPrefs.GetInt("health") == 0)
         {
             SceneManager.LoadScene(1);
@@ -38,8 +40,8 @@ public class VictorinController : MonoBehaviour
     }
     public void AnswerFalse()
     {
-        health -= 1;
-        PlayerPrefs.SetInt("health", health);
+        health -= power;
+        PlayerPrefs.SetInt("health", 0 + health);
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(nextSceneIndex);
     }
