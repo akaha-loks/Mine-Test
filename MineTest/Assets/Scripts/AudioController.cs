@@ -5,25 +5,14 @@ using UnityEngine.UI;
 
 public class AudioController : MonoBehaviour
 {
-    [SerializeField] AudioSource BackgroundMusic;
+    public AudioSource audio_;
 
-    private bool isEnadle = true;
-    public void Update()
+    private void Start()
     {
-        if (isEnadle)
-        {
-            BackgroundMusic.enabled = true;
-        }
-        else
-            BackgroundMusic.enabled = false;
+        if (!PlayerPrefs.HasKey("volume")) audio_.volume = 1;
     }
-    public void EnableMusic()
+    private void Update()
     {
-        if (isEnadle)
-        {
-            isEnadle = false;
-        }
-        else
-            isEnadle = true;
+        audio_.volume = PlayerPrefs.GetFloat("volume");
     }
 }
