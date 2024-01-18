@@ -29,8 +29,8 @@ public class UI : MonoBehaviour
     {
         if (id == 1)
         {
-            health += 1;
-            PlayerPrefs.SetInt("health", health);
+            //health += 1;
+            //PlayerPrefs.SetInt("health", health);
             Debug.LogWarning("ея" + health);
         }
     }
@@ -38,6 +38,8 @@ public class UI : MonoBehaviour
     {
         if (health < 3)
         {
+            health += 1;
+            PlayerPrefs.SetInt("health", health);
             YandexGame.RewVideoShow(id);
         }
         else
